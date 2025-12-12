@@ -29,6 +29,7 @@ import {
   Home,
   Activity,
   User,
+  DollarSign,
 } from 'lucide-react';
 import logoTomazin from '@/assets/logo-tomazin.png';
 import { cn } from '@/lib/utils';
@@ -45,6 +46,7 @@ const menuItems = [
   { title: 'Taxonomias', url: '/admin/taxonomias', icon: Settings },
   { title: 'Configurações', url: '/admin/configuracoes', icon: Settings },
   { title: 'Integrações', url: '/admin/integracoes', icon: Plug },
+  { title: 'Tabela FIPE', url: '/admin/fipe', icon: DollarSign },
   { title: 'SEO', url: '/admin/seo', icon: Search },
   { title: 'Usuários', url: '/admin/usuarios', icon: UserCog },
   { title: 'Logs', url: '/admin/logs', icon: Activity },
