@@ -40,6 +40,7 @@ const menuItems = [
   { title: 'Páginas', url: '/admin/paginas', icon: FileText },
   { title: 'Depoimentos', url: '/admin/depoimentos', icon: MessageSquare },
   { title: 'Home', url: '/admin/home', icon: Home },
+  { title: 'Taxonomias', url: '/admin/taxonomias', icon: Settings },
   { title: 'Configurações', url: '/admin/configuracoes', icon: Settings },
   { title: 'Integrações', url: '/admin/integracoes', icon: Plug },
   { title: 'SEO', url: '/admin/seo', icon: Search },

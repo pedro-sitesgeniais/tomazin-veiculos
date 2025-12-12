@@ -203,18 +203,21 @@ export type Database = {
           hex_code: string | null
           id: string
           nome: string
+          ordem: number | null
         }
         Insert: {
           created_at?: string
           hex_code?: string | null
           id?: string
           nome: string
+          ordem?: number | null
         }
         Update: {
           created_at?: string
           hex_code?: string | null
           id?: string
           nome?: string
+          ordem?: number | null
         }
         Relationships: []
       }
@@ -453,6 +456,7 @@ export type Database = {
           id: string
           logo_url: string | null
           nome: string
+          ordem: number | null
         }
         Insert: {
           ativo?: boolean
@@ -460,6 +464,7 @@ export type Database = {
           id?: string
           logo_url?: string | null
           nome: string
+          ordem?: number | null
         }
         Update: {
           ativo?: boolean
@@ -467,6 +472,7 @@ export type Database = {
           id?: string
           logo_url?: string | null
           nome?: string
+          ordem?: number | null
         }
         Relationships: []
       }
@@ -509,6 +515,7 @@ export type Database = {
           icone: string | null
           id: string
           nome: string
+          ordem: number | null
         }
         Insert: {
           categoria: string
@@ -516,6 +523,7 @@ export type Database = {
           icone?: string | null
           id?: string
           nome: string
+          ordem?: number | null
         }
         Update: {
           categoria?: string
@@ -523,6 +531,7 @@ export type Database = {
           icone?: string | null
           id?: string
           nome?: string
+          ordem?: number | null
         }
         Relationships: []
       }
@@ -687,6 +696,33 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      status_veiculo: {
+        Row: {
+          ativo: boolean | null
+          cor: string | null
+          created_at: string | null
+          id: string
+          nome: string
+          ordem: number | null
+        }
+        Insert: {
+          ativo?: boolean | null
+          cor?: string | null
+          created_at?: string | null
+          id?: string
+          nome: string
+          ordem?: number | null
+        }
+        Update: {
+          ativo?: boolean | null
+          cor?: string | null
+          created_at?: string | null
+          id?: string
+          nome?: string
+          ordem?: number | null
+        }
+        Relationships: []
       }
       user_roles: {
         Row: {
