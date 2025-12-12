@@ -32,6 +32,7 @@ import SeoConfig from "./pages/admin/SeoConfig";
 import UsuariosLista from "./pages/admin/UsuariosLista";
 import LogsLista from "./pages/admin/LogsLista";
 import Perfil from "./pages/admin/Perfil";
+import FipeConsulta from "./pages/admin/FipeConsulta";
 
 const queryClient = new QueryClient();
 
@@ -72,6 +73,7 @@ const App = () => (
               <Route path="/admin/usuarios" element={<UsuariosLista />} />
               <Route path="/admin/logs" element={<LogsLista />} />
               <Route path="/admin/perfil" element={<Perfil />} />
+              <Route path="/admin/fipe" element={<FipeConsulta />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

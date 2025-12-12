@@ -299,6 +299,51 @@ export type Database = {
         }
         Relationships: []
       }
+      fipe_cache: {
+        Row: {
+          ano_modelo: string
+          codigo_fipe: string
+          combustivel: string | null
+          created_at: string
+          dados: Json | null
+          id: string
+          marca: string
+          mes_referencia: string
+          modelo: string
+          tipo: string
+          updated_at: string
+          valor: string
+        }
+        Insert: {
+          ano_modelo: string
+          codigo_fipe: string
+          combustivel?: string | null
+          created_at?: string
+          dados?: Json | null
+          id?: string
+          marca: string
+          mes_referencia: string
+          modelo: string
+          tipo: string
+          updated_at?: string
+          valor: string
+        }
+        Update: {
+          ano_modelo?: string
+          codigo_fipe?: string
+          combustivel?: string | null
+          created_at?: string
+          dados?: Json | null
+          id?: string
+          marca?: string
+          mes_referencia?: string
+          modelo?: string
+          tipo?: string
+          updated_at?: string
+          valor?: string
+        }
+        Relationships: []
+      }
       home_config: {
         Row: {
           config: Json | null
@@ -998,6 +1043,7 @@ export type Database = {
           cambio: Database["public"]["Enums"]["cambio_type"]
           carroceria: Database["public"]["Enums"]["carroceria_type"]
           chassi: string | null
+          codigo_fipe: string | null
           codigo_interno: string | null
           combustivel: Database["public"]["Enums"]["combustivel_type"]
           condicao: Database["public"]["Enums"]["condicao_type"]
@@ -1026,6 +1072,7 @@ export type Database = {
           slug: string | null
           status: string
           updated_at: string
+          valor_fipe: number | null
           versao: string | null
           video_youtube: string | null
         }
@@ -1036,6 +1083,7 @@ export type Database = {
           cambio?: Database["public"]["Enums"]["cambio_type"]
           carroceria?: Database["public"]["Enums"]["carroceria_type"]
           chassi?: string | null
+          codigo_fipe?: string | null
           codigo_interno?: string | null
           combustivel?: Database["public"]["Enums"]["combustivel_type"]
           condicao?: Database["public"]["Enums"]["condicao_type"]
@@ -1064,6 +1112,7 @@ export type Database = {
           slug?: string | null
           status?: string
           updated_at?: string
+          valor_fipe?: number | null
           versao?: string | null
           video_youtube?: string | null
         }
@@ -1074,6 +1123,7 @@ export type Database = {
           cambio?: Database["public"]["Enums"]["cambio_type"]
           carroceria?: Database["public"]["Enums"]["carroceria_type"]
           chassi?: string | null
+          codigo_fipe?: string | null
           codigo_interno?: string | null
           combustivel?: Database["public"]["Enums"]["combustivel_type"]
           condicao?: Database["public"]["Enums"]["condicao_type"]
@@ -1102,6 +1152,7 @@ export type Database = {
           slug?: string | null
           status?: string
           updated_at?: string
+          valor_fipe?: number | null
           versao?: string | null
           video_youtube?: string | null
         }
