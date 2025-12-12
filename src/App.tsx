@@ -15,6 +15,8 @@ import NotFound from "./pages/NotFound";
 // Admin pages
 import AdminLogin from "./pages/admin/Login";
 import AdminDashboard from "./pages/admin/Dashboard";
+import VeiculosLista from "./pages/admin/VeiculosLista";
+import VeiculoForm from "./pages/admin/VeiculoForm";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +39,9 @@ const App = () => (
               {/* Admin routes */}
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/veiculos" element={<VeiculosLista />} />
+              <Route path="/admin/veiculos/novo" element={<VeiculoForm />} />
+              <Route path="/admin/veiculos/:id" element={<VeiculoForm />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
