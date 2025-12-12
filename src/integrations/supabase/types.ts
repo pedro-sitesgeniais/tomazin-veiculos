@@ -164,6 +164,39 @@ export type Database = {
         }
         Relationships: []
       }
+      configuracoes: {
+        Row: {
+          chave: string
+          created_at: string | null
+          grupo: string
+          id: string
+          ordem: number | null
+          tipo: string | null
+          updated_at: string | null
+          valor: string | null
+        }
+        Insert: {
+          chave: string
+          created_at?: string | null
+          grupo: string
+          id?: string
+          ordem?: number | null
+          tipo?: string | null
+          updated_at?: string | null
+          valor?: string | null
+        }
+        Update: {
+          chave?: string
+          created_at?: string | null
+          grupo?: string
+          id?: string
+          ordem?: number | null
+          tipo?: string | null
+          updated_at?: string | null
+          valor?: string | null
+        }
+        Relationships: []
+      }
       cores: {
         Row: {
           created_at: string
