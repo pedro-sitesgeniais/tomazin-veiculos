@@ -25,6 +25,8 @@ import {
   Search,
   UserCog,
   LogOut,
+  MessageSquare,
+  Home,
 } from 'lucide-react';
 import logoTomazin from '@/assets/logo-tomazin.png';
 import { cn } from '@/lib/utils';
@@ -36,6 +38,8 @@ const menuItems = [
   { title: 'Avaliações', url: '/admin/avaliacoes', icon: ClipboardList },
   { title: 'Banners', url: '/admin/banners', icon: Image },
   { title: 'Páginas', url: '/admin/paginas', icon: FileText },
+  { title: 'Depoimentos', url: '/admin/depoimentos', icon: MessageSquare },
+  { title: 'Home', url: '/admin/home', icon: Home },
   { title: 'Configurações', url: '/admin/configuracoes', icon: Settings },
   { title: 'Integrações', url: '/admin/integracoes', icon: Plug },
   { title: 'SEO', url: '/admin/seo', icon: Search },

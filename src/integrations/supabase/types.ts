@@ -110,6 +110,60 @@ export type Database = {
         }
         Relationships: []
       }
+      banners: {
+        Row: {
+          ativo: boolean | null
+          created_at: string | null
+          data_fim: string | null
+          data_inicio: string | null
+          id: string
+          imagem_desktop: string
+          imagem_mobile: string | null
+          link_botao: string | null
+          ordem: number | null
+          posicao_texto: string | null
+          subtitulo_overlay: string | null
+          texto_botao: string | null
+          titulo_interno: string
+          titulo_overlay: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          ativo?: boolean | null
+          created_at?: string | null
+          data_fim?: string | null
+          data_inicio?: string | null
+          id?: string
+          imagem_desktop: string
+          imagem_mobile?: string | null
+          link_botao?: string | null
+          ordem?: number | null
+          posicao_texto?: string | null
+          subtitulo_overlay?: string | null
+          texto_botao?: string | null
+          titulo_interno: string
+          titulo_overlay?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          ativo?: boolean | null
+          created_at?: string | null
+          data_fim?: string | null
+          data_inicio?: string | null
+          id?: string
+          imagem_desktop?: string
+          imagem_mobile?: string | null
+          link_botao?: string | null
+          ordem?: number | null
+          posicao_texto?: string | null
+          subtitulo_overlay?: string | null
+          texto_botao?: string | null
+          titulo_interno?: string
+          titulo_overlay?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       cores: {
         Row: {
           created_at: string
@@ -128,6 +182,66 @@ export type Database = {
           hex_code?: string | null
           id?: string
           nome?: string
+        }
+        Relationships: []
+      }
+      depoimentos: {
+        Row: {
+          ativo: boolean | null
+          avaliacao: number | null
+          created_at: string | null
+          data: string | null
+          depoimento: string
+          foto_url: string | null
+          id: string
+          nome: string
+          ordem: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          ativo?: boolean | null
+          avaliacao?: number | null
+          created_at?: string | null
+          data?: string | null
+          depoimento: string
+          foto_url?: string | null
+          id?: string
+          nome: string
+          ordem?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          ativo?: boolean | null
+          avaliacao?: number | null
+          created_at?: string | null
+          data?: string | null
+          depoimento?: string
+          foto_url?: string | null
+          id?: string
+          nome?: string
+          ordem?: number | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      home_config: {
+        Row: {
+          config: Json | null
+          id: string
+          secao: string
+          updated_at: string | null
+        }
+        Insert: {
+          config?: Json | null
+          id?: string
+          secao: string
+          updated_at?: string | null
+        }
+        Update: {
+          config?: Json | null
+          id?: string
+          secao?: string
+          updated_at?: string | null
         }
         Relationships: []
       }
@@ -376,6 +490,39 @@ export type Database = {
           icone?: string | null
           id?: string
           nome?: string
+        }
+        Relationships: []
+      }
+      paginas: {
+        Row: {
+          conteudo: string | null
+          created_at: string | null
+          id: string
+          meta_description: string | null
+          meta_title: string | null
+          slug: string
+          titulo: string
+          updated_at: string | null
+        }
+        Insert: {
+          conteudo?: string | null
+          created_at?: string | null
+          id?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          slug: string
+          titulo: string
+          updated_at?: string | null
+        }
+        Update: {
+          conteudo?: string | null
+          created_at?: string | null
+          id?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          slug?: string
+          titulo?: string
+          updated_at?: string | null
         }
         Relationships: []
       }
