@@ -14,6 +14,102 @@ export type Database = {
   }
   public: {
     Tables: {
+      simulacoes_financiamento: {
+        Row: {
+          created_at: string
+          custo_financiamento: number
+          id: string
+          prazo: number
+          taxa_juros: number
+          total_pagar: number
+          valor_entrada: number
+          valor_financiado: number
+          valor_parcela: number
+          valor_veiculo: number
+        }
+        Insert: {
+          created_at?: string
+          custo_financiamento: number
+          id?: string
+          prazo: number
+          taxa_juros: number
+          total_pagar: number
+          valor_entrada: number
+          valor_financiado: number
+          valor_parcela: number
+          valor_veiculo: number
+        }
+        Update: {
+          created_at?: string
+          custo_financiamento?: number
+          id?: string
+          prazo?: number
+          taxa_juros?: number
+          total_pagar?: number
+          valor_entrada?: number
+          valor_financiado?: number
+          valor_parcela?: number
+          valor_veiculo?: number
+        }
+        Relationships: []
+      }
+      solicitacoes_credito: {
+        Row: {
+          aceite_lgpd: boolean
+          cpf: string
+          created_at: string
+          email: string
+          id: string
+          nome: string
+          possui_veiculo_troca: boolean
+          renda_mensal: number
+          simulacao_id: string | null
+          telefone: string
+          veiculo_interesse_id: string | null
+        }
+        Insert: {
+          aceite_lgpd?: boolean
+          cpf: string
+          created_at?: string
+          email: string
+          id?: string
+          nome: string
+          possui_veiculo_troca?: boolean
+          renda_mensal: number
+          simulacao_id?: string | null
+          telefone: string
+          veiculo_interesse_id?: string | null
+        }
+        Update: {
+          aceite_lgpd?: boolean
+          cpf?: string
+          created_at?: string
+          email?: string
+          id?: string
+          nome?: string
+          possui_veiculo_troca?: boolean
+          renda_mensal?: number
+          simulacao_id?: string | null
+          telefone?: string
+          veiculo_interesse_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "solicitacoes_credito_simulacao_id_fkey"
+            columns: ["simulacao_id"]
+            isOneToOne: false
+            referencedRelation: "simulacoes_financiamento"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "solicitacoes_credito_veiculo_interesse_id_fkey"
+            columns: ["veiculo_interesse_id"]
+            isOneToOne: false
+            referencedRelation: "veiculos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       veiculos: {
         Row: {
           ano: number
