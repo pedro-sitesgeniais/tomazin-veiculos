@@ -131,6 +131,174 @@ export type Database = {
         }
         Relationships: []
       }
+      lead_interacoes: {
+        Row: {
+          arquivo_url: string | null
+          created_at: string
+          descricao: string
+          id: string
+          lead_id: string
+          tipo: Database["public"]["Enums"]["interacao_tipo"]
+          usuario_id: string | null
+        }
+        Insert: {
+          arquivo_url?: string | null
+          created_at?: string
+          descricao: string
+          id?: string
+          lead_id: string
+          tipo: Database["public"]["Enums"]["interacao_tipo"]
+          usuario_id?: string | null
+        }
+        Update: {
+          arquivo_url?: string | null
+          created_at?: string
+          descricao?: string
+          id?: string
+          lead_id?: string
+          tipo?: Database["public"]["Enums"]["interacao_tipo"]
+          usuario_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lead_interacoes_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "lead_interacoes_usuario_id_fkey"
+            columns: ["usuario_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      lead_tarefas: {
+        Row: {
+          concluida: boolean
+          created_at: string
+          data_limite: string | null
+          descricao: string
+          id: string
+          lead_id: string
+          usuario_id: string | null
+        }
+        Insert: {
+          concluida?: boolean
+          created_at?: string
+          data_limite?: string | null
+          descricao: string
+          id?: string
+          lead_id: string
+          usuario_id?: string | null
+        }
+        Update: {
+          concluida?: boolean
+          created_at?: string
+          data_limite?: string | null
+          descricao?: string
+          id?: string
+          lead_id?: string
+          usuario_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lead_tarefas_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "lead_tarefas_usuario_id_fkey"
+            columns: ["usuario_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      leads: {
+        Row: {
+          cidade: string | null
+          convertido_em: string | null
+          cpf: string | null
+          created_at: string
+          email: string | null
+          id: string
+          motivo_perda: string | null
+          nome: string
+          observacoes: string | null
+          origem: Database["public"]["Enums"]["lead_origem"]
+          responsavel_id: string | null
+          status: Database["public"]["Enums"]["lead_status"]
+          telefone: string
+          uf: string | null
+          updated_at: string
+          valor_venda: number | null
+          veiculo_id: string | null
+          whatsapp: string | null
+        }
+        Insert: {
+          cidade?: string | null
+          convertido_em?: string | null
+          cpf?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          motivo_perda?: string | null
+          nome: string
+          observacoes?: string | null
+          origem?: Database["public"]["Enums"]["lead_origem"]
+          responsavel_id?: string | null
+          status?: Database["public"]["Enums"]["lead_status"]
+          telefone: string
+          uf?: string | null
+          updated_at?: string
+          valor_venda?: number | null
+          veiculo_id?: string | null
+          whatsapp?: string | null
+        }
+        Update: {
+          cidade?: string | null
+          convertido_em?: string | null
+          cpf?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          motivo_perda?: string | null
+          nome?: string
+          observacoes?: string | null
+          origem?: Database["public"]["Enums"]["lead_origem"]
+          responsavel_id?: string | null
+          status?: Database["public"]["Enums"]["lead_status"]
+          telefone?: string
+          uf?: string | null
+          updated_at?: string
+          valor_venda?: number | null
+          veiculo_id?: string | null
+          whatsapp?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "leads_responsavel_id_fkey"
+            columns: ["responsavel_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "leads_veiculo_id_fkey"
+            columns: ["veiculo_id"]
+            isOneToOne: false
+            referencedRelation: "veiculos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       marcas: {
         Row: {
           ativo: boolean
@@ -579,7 +747,33 @@ export type Database = {
       combustivel_type: "Flex" | "Gasolina" | "Diesel" | "Elétrico" | "Híbrido"
       condicao_type: "0KM" | "Seminovo"
       estado_veiculo: "Excelente" | "Bom" | "Regular" | "Precisa reparos"
+      interacao_tipo:
+        | "nota"
+        | "ligacao"
+        | "whatsapp"
+        | "email"
+        | "proposta"
+        | "agendamento"
+        | "visita"
       interesse_avaliacao: "Vender" | "Trocar por outro" | "Apenas avaliação"
+      lead_origem:
+        | "formulario_contato"
+        | "interesse_veiculo"
+        | "simulacao_financiamento"
+        | "avaliacao_veiculo"
+        | "whatsapp"
+        | "telefone"
+        | "indicacao"
+        | "outros"
+      lead_status:
+        | "novo"
+        | "em_atendimento"
+        | "aguardando_cliente"
+        | "proposta_enviada"
+        | "negociacao"
+        | "convertido"
+        | "perdido"
+        | "descartado"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -727,7 +921,36 @@ export const Constants = {
       combustivel_type: ["Flex", "Gasolina", "Diesel", "Elétrico", "Híbrido"],
       condicao_type: ["0KM", "Seminovo"],
       estado_veiculo: ["Excelente", "Bom", "Regular", "Precisa reparos"],
+      interacao_tipo: [
+        "nota",
+        "ligacao",
+        "whatsapp",
+        "email",
+        "proposta",
+        "agendamento",
+        "visita",
+      ],
       interesse_avaliacao: ["Vender", "Trocar por outro", "Apenas avaliação"],
+      lead_origem: [
+        "formulario_contato",
+        "interesse_veiculo",
+        "simulacao_financiamento",
+        "avaliacao_veiculo",
+        "whatsapp",
+        "telefone",
+        "indicacao",
+        "outros",
+      ],
+      lead_status: [
+        "novo",
+        "em_atendimento",
+        "aguardando_cliente",
+        "proposta_enviada",
+        "negociacao",
+        "convertido",
+        "perdido",
+        "descartado",
+      ],
     },
   },
 } as const
