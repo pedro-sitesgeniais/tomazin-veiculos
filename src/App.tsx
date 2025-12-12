@@ -25,6 +25,7 @@ import BannersLista from "./pages/admin/BannersLista";
 import PaginasLista from "./pages/admin/PaginasLista";
 import DepoimentosLista from "./pages/admin/DepoimentosLista";
 import HomeConfig from "./pages/admin/HomeConfig";
+import Configuracoes from "./pages/admin/Configuracoes";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +59,7 @@ const App = () => (
               <Route path="/admin/paginas" element={<PaginasLista />} />
               <Route path="/admin/depoimentos" element={<DepoimentosLista />} />
               <Route path="/admin/home" element={<HomeConfig />} />
+              <Route path="/admin/configuracoes" element={<Configuracoes />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
