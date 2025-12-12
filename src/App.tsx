@@ -21,6 +21,10 @@ import LeadsLista from "./pages/admin/LeadsLista";
 import LeadDetalhe from "./pages/admin/LeadDetalhe";
 import AvaliacoesLista from "./pages/admin/AvaliacoesLista";
 import AvaliacaoDetalhe from "./pages/admin/AvaliacaoDetalhe";
+import BannersLista from "./pages/admin/BannersLista";
+import PaginasLista from "./pages/admin/PaginasLista";
+import DepoimentosLista from "./pages/admin/DepoimentosLista";
+import HomeConfig from "./pages/admin/HomeConfig";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +54,10 @@ const App = () => (
               <Route path="/admin/leads/:id" element={<LeadDetalhe />} />
               <Route path="/admin/avaliacoes" element={<AvaliacoesLista />} />
               <Route path="/admin/avaliacoes/:id" element={<AvaliacaoDetalhe />} />
+              <Route path="/admin/banners" element={<BannersLista />} />
+              <Route path="/admin/paginas" element={<PaginasLista />} />
+              <Route path="/admin/depoimentos" element={<DepoimentosLista />} />
+              <Route path="/admin/home" element={<HomeConfig />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
