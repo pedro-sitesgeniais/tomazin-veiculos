@@ -110,6 +110,107 @@ export type Database = {
         }
         Relationships: []
       }
+      cores: {
+        Row: {
+          created_at: string
+          hex_code: string | null
+          id: string
+          nome: string
+        }
+        Insert: {
+          created_at?: string
+          hex_code?: string | null
+          id?: string
+          nome: string
+        }
+        Update: {
+          created_at?: string
+          hex_code?: string | null
+          id?: string
+          nome?: string
+        }
+        Relationships: []
+      }
+      marcas: {
+        Row: {
+          ativo: boolean
+          created_at: string
+          id: string
+          logo_url: string | null
+          nome: string
+        }
+        Insert: {
+          ativo?: boolean
+          created_at?: string
+          id?: string
+          logo_url?: string | null
+          nome: string
+        }
+        Update: {
+          ativo?: boolean
+          created_at?: string
+          id?: string
+          logo_url?: string | null
+          nome?: string
+        }
+        Relationships: []
+      }
+      modelos: {
+        Row: {
+          ativo: boolean
+          created_at: string
+          id: string
+          marca_id: string
+          nome: string
+        }
+        Insert: {
+          ativo?: boolean
+          created_at?: string
+          id?: string
+          marca_id: string
+          nome: string
+        }
+        Update: {
+          ativo?: boolean
+          created_at?: string
+          id?: string
+          marca_id?: string
+          nome?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "modelos_marca_id_fkey"
+            columns: ["marca_id"]
+            isOneToOne: false
+            referencedRelation: "marcas"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      opcionais: {
+        Row: {
+          categoria: string
+          created_at: string
+          icone: string | null
+          id: string
+          nome: string
+        }
+        Insert: {
+          categoria: string
+          created_at?: string
+          icone?: string | null
+          id?: string
+          nome: string
+        }
+        Update: {
+          categoria?: string
+          created_at?: string
+          icone?: string | null
+          id?: string
+          nome?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           ativo: boolean
@@ -260,6 +361,74 @@ export type Database = {
         }
         Relationships: []
       }
+      veiculo_imagens: {
+        Row: {
+          created_at: string
+          id: string
+          ordem: number
+          principal: boolean
+          url: string
+          veiculo_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          ordem?: number
+          principal?: boolean
+          url: string
+          veiculo_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          ordem?: number
+          principal?: boolean
+          url?: string
+          veiculo_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "veiculo_imagens_veiculo_id_fkey"
+            columns: ["veiculo_id"]
+            isOneToOne: false
+            referencedRelation: "veiculos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      veiculo_opcionais: {
+        Row: {
+          id: string
+          opcional_id: string
+          veiculo_id: string
+        }
+        Insert: {
+          id?: string
+          opcional_id: string
+          veiculo_id: string
+        }
+        Update: {
+          id?: string
+          opcional_id?: string
+          veiculo_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "veiculo_opcionais_opcional_id_fkey"
+            columns: ["opcional_id"]
+            isOneToOne: false
+            referencedRelation: "opcionais"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "veiculo_opcionais_veiculo_id_fkey"
+            columns: ["veiculo_id"]
+            isOneToOne: false
+            referencedRelation: "veiculos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       veiculos: {
         Row: {
           ano: number
@@ -267,11 +436,14 @@ export type Database = {
           ativo: boolean
           cambio: Database["public"]["Enums"]["cambio_type"]
           carroceria: Database["public"]["Enums"]["carroceria_type"]
+          chassi: string | null
+          codigo_interno: string | null
           combustivel: Database["public"]["Enums"]["combustivel_type"]
           condicao: Database["public"]["Enums"]["condicao_type"]
           cor: string | null
           created_at: string
           descricao: string | null
+          descricao_curta: string | null
           destaque: boolean
           final_placa: number | null
           id: string
@@ -279,13 +451,22 @@ export type Database = {
           imagens: string[] | null
           km: number
           marca: string
+          meta_description: string | null
+          meta_title: string | null
           modelo: string
           novo: boolean
+          observacoes_internas: string | null
           opcionais: string[] | null
+          placa: string | null
           portas: number | null
           preco: number
+          preco_promocional: number | null
+          renavam: string | null
+          slug: string | null
+          status: string
           updated_at: string
           versao: string | null
+          video_youtube: string | null
         }
         Insert: {
           ano: number
@@ -293,11 +474,14 @@ export type Database = {
           ativo?: boolean
           cambio?: Database["public"]["Enums"]["cambio_type"]
           carroceria?: Database["public"]["Enums"]["carroceria_type"]
+          chassi?: string | null
+          codigo_interno?: string | null
           combustivel?: Database["public"]["Enums"]["combustivel_type"]
           condicao?: Database["public"]["Enums"]["condicao_type"]
           cor?: string | null
           created_at?: string
           descricao?: string | null
+          descricao_curta?: string | null
           destaque?: boolean
           final_placa?: number | null
           id?: string
@@ -305,13 +489,22 @@ export type Database = {
           imagens?: string[] | null
           km?: number
           marca: string
+          meta_description?: string | null
+          meta_title?: string | null
           modelo: string
           novo?: boolean
+          observacoes_internas?: string | null
           opcionais?: string[] | null
+          placa?: string | null
           portas?: number | null
           preco: number
+          preco_promocional?: number | null
+          renavam?: string | null
+          slug?: string | null
+          status?: string
           updated_at?: string
           versao?: string | null
+          video_youtube?: string | null
         }
         Update: {
           ano?: number
@@ -319,11 +512,14 @@ export type Database = {
           ativo?: boolean
           cambio?: Database["public"]["Enums"]["cambio_type"]
           carroceria?: Database["public"]["Enums"]["carroceria_type"]
+          chassi?: string | null
+          codigo_interno?: string | null
           combustivel?: Database["public"]["Enums"]["combustivel_type"]
           condicao?: Database["public"]["Enums"]["condicao_type"]
           cor?: string | null
           created_at?: string
           descricao?: string | null
+          descricao_curta?: string | null
           destaque?: boolean
           final_placa?: number | null
           id?: string
@@ -331,13 +527,22 @@ export type Database = {
           imagens?: string[] | null
           km?: number
           marca?: string
+          meta_description?: string | null
+          meta_title?: string | null
           modelo?: string
           novo?: boolean
+          observacoes_internas?: string | null
           opcionais?: string[] | null
+          placa?: string | null
           portas?: number | null
           preco?: number
+          preco_promocional?: number | null
+          renavam?: string | null
+          slug?: string | null
+          status?: string
           updated_at?: string
           versao?: string | null
+          video_youtube?: string | null
         }
         Relationships: []
       }
