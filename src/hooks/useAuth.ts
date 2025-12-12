@@ -14,7 +14,7 @@ interface Profile {
 interface UserRole {
   id: string;
   user_id: string;
-  role: 'admin' | 'editor';
+  role: 'admin' | 'editor' | 'vendedor';
 }
 
 export function useAuth() {

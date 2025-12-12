@@ -29,6 +29,9 @@ import Configuracoes from "./pages/admin/Configuracoes";
 import TaxonomiasLista from "./pages/admin/TaxonomiasLista";
 import IntegracoesLista from "./pages/admin/IntegracoesLista";
 import SeoConfig from "./pages/admin/SeoConfig";
+import UsuariosLista from "./pages/admin/UsuariosLista";
+import LogsLista from "./pages/admin/LogsLista";
+import Perfil from "./pages/admin/Perfil";
 
 const queryClient = new QueryClient();
 
@@ -66,6 +69,9 @@ const App = () => (
               <Route path="/admin/taxonomias" element={<TaxonomiasLista />} />
               <Route path="/admin/integracoes" element={<IntegracoesLista />} />
               <Route path="/admin/seo" element={<SeoConfig />} />
+              <Route path="/admin/usuarios" element={<UsuariosLista />} />
+              <Route path="/admin/logs" element={<LogsLista />} />
+              <Route path="/admin/perfil" element={<Perfil />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

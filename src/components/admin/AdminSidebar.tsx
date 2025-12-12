@@ -27,6 +27,8 @@ import {
   LogOut,
   MessageSquare,
   Home,
+  Activity,
+  User,
 } from 'lucide-react';
 import logoTomazin from '@/assets/logo-tomazin.png';
 import { cn } from '@/lib/utils';
@@ -45,6 +47,8 @@ const menuItems = [
   { title: 'Integrações', url: '/admin/integracoes', icon: Plug },
   { title: 'SEO', url: '/admin/seo', icon: Search },
   { title: 'Usuários', url: '/admin/usuarios', icon: UserCog },
+  { title: 'Logs', url: '/admin/logs', icon: Activity },
+  { title: 'Meu Perfil', url: '/admin/perfil', icon: User },
 ];
 
 export function AdminSidebar() {

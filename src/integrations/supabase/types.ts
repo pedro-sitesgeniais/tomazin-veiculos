@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      activity_logs: {
+        Row: {
+          action: string
+          created_at: string
+          entity_id: string | null
+          entity_type: string | null
+          id: string
+          ip_address: string | null
+          new_data: Json | null
+          old_data: Json | null
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          entity_id?: string | null
+          entity_type?: string | null
+          id?: string
+          ip_address?: string | null
+          new_data?: Json | null
+          old_data?: Json | null
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          entity_id?: string | null
+          entity_type?: string | null
+          id?: string
+          ip_address?: string | null
+          new_data?: Json | null
+          old_data?: Json | null
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       avaliacoes_veiculos: {
         Row: {
           aceite_lgpd: boolean
@@ -707,7 +746,9 @@ export type Database = {
           created_at: string
           email: string
           id: string
+          last_access: string | null
           nome: string | null
+          preferences: Json | null
           updated_at: string
           user_id: string
         }
@@ -717,7 +758,9 @@ export type Database = {
           created_at?: string
           email: string
           id?: string
+          last_access?: string | null
           nome?: string | null
+          preferences?: Json | null
           updated_at?: string
           user_id: string
         }
@@ -727,7 +770,9 @@ export type Database = {
           created_at?: string
           email?: string
           id?: string
+          last_access?: string | null
           nome?: string | null
+          preferences?: Json | null
           updated_at?: string
           user_id?: string
         }
@@ -1077,7 +1122,7 @@ export type Database = {
       is_admin: { Args: { _user_id: string }; Returns: boolean }
     }
     Enums: {
-      app_role: "admin" | "editor"
+      app_role: "admin" | "editor" | "vendedor"
       avaliacao_status:
         | "pendente"
         | "em_analise"
@@ -1249,7 +1294,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      app_role: ["admin", "editor"],
+      app_role: ["admin", "editor", "vendedor"],
       avaliacao_status: [
         "pendente",
         "em_analise",
