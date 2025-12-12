@@ -26,6 +26,7 @@ import PaginasLista from "./pages/admin/PaginasLista";
 import DepoimentosLista from "./pages/admin/DepoimentosLista";
 import HomeConfig from "./pages/admin/HomeConfig";
 import Configuracoes from "./pages/admin/Configuracoes";
+import TaxonomiasLista from "./pages/admin/TaxonomiasLista";
 
 const queryClient = new QueryClient();
 
@@ -60,6 +61,7 @@ const App = () => (
               <Route path="/admin/depoimentos" element={<DepoimentosLista />} />
               <Route path="/admin/home" element={<HomeConfig />} />
               <Route path="/admin/configuracoes" element={<Configuracoes />} />
+              <Route path="/admin/taxonomias" element={<TaxonomiasLista />} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
