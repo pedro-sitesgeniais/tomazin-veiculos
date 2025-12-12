@@ -14,6 +14,102 @@ export type Database = {
   }
   public: {
     Tables: {
+      avaliacoes_veiculos: {
+        Row: {
+          aceite_lgpd: boolean
+          ano_modelo: number
+          cambio: string
+          cidade: string
+          combustivel: string
+          cor: string
+          cpf: string
+          created_at: string
+          email: string
+          estado_geral: Database["public"]["Enums"]["estado_veiculo"]
+          fotos: string[] | null
+          id: string
+          interesse: Database["public"]["Enums"]["interesse_avaliacao"]
+          ipva_pago: boolean
+          manual_chave_reserva: boolean
+          marca: string
+          melhor_horario: string | null
+          modelo: string
+          nome: string
+          observacoes: string | null
+          possui_multas: boolean
+          protocolo: string
+          quilometragem: number
+          status: Database["public"]["Enums"]["avaliacao_status"]
+          telefone: string
+          uf: string
+          unico_dono: boolean
+          updated_at: string
+          versao: string | null
+        }
+        Insert: {
+          aceite_lgpd?: boolean
+          ano_modelo: number
+          cambio: string
+          cidade: string
+          combustivel: string
+          cor: string
+          cpf: string
+          created_at?: string
+          email: string
+          estado_geral: Database["public"]["Enums"]["estado_veiculo"]
+          fotos?: string[] | null
+          id?: string
+          interesse: Database["public"]["Enums"]["interesse_avaliacao"]
+          ipva_pago?: boolean
+          manual_chave_reserva?: boolean
+          marca: string
+          melhor_horario?: string | null
+          modelo: string
+          nome: string
+          observacoes?: string | null
+          possui_multas?: boolean
+          protocolo: string
+          quilometragem: number
+          status?: Database["public"]["Enums"]["avaliacao_status"]
+          telefone: string
+          uf: string
+          unico_dono?: boolean
+          updated_at?: string
+          versao?: string | null
+        }
+        Update: {
+          aceite_lgpd?: boolean
+          ano_modelo?: number
+          cambio?: string
+          cidade?: string
+          combustivel?: string
+          cor?: string
+          cpf?: string
+          created_at?: string
+          email?: string
+          estado_geral?: Database["public"]["Enums"]["estado_veiculo"]
+          fotos?: string[] | null
+          id?: string
+          interesse?: Database["public"]["Enums"]["interesse_avaliacao"]
+          ipva_pago?: boolean
+          manual_chave_reserva?: boolean
+          marca?: string
+          melhor_horario?: string | null
+          modelo?: string
+          nome?: string
+          observacoes?: string | null
+          possui_multas?: boolean
+          protocolo?: string
+          quilometragem?: number
+          status?: Database["public"]["Enums"]["avaliacao_status"]
+          telefone?: string
+          uf?: string
+          unico_dono?: boolean
+          updated_at?: string
+          versao?: string | null
+        }
+        Relationships: []
+      }
       simulacoes_financiamento: {
         Row: {
           created_at: string
@@ -199,6 +295,12 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
+      avaliacao_status:
+        | "pendente"
+        | "em_analise"
+        | "proposta_enviada"
+        | "concluido"
+        | "cancelado"
       cambio_type: "Manual" | "Automático" | "CVT" | "Automatizado"
       carroceria_type:
         | "Sedan"
@@ -209,6 +311,8 @@ export type Database = {
         | "Van"
       combustivel_type: "Flex" | "Gasolina" | "Diesel" | "Elétrico" | "Híbrido"
       condicao_type: "0KM" | "Seminovo"
+      estado_veiculo: "Excelente" | "Bom" | "Regular" | "Precisa reparos"
+      interesse_avaliacao: "Vender" | "Trocar por outro" | "Apenas avaliação"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -336,6 +440,13 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      avaliacao_status: [
+        "pendente",
+        "em_analise",
+        "proposta_enviada",
+        "concluido",
+        "cancelado",
+      ],
       cambio_type: ["Manual", "Automático", "CVT", "Automatizado"],
       carroceria_type: [
         "Sedan",
@@ -347,6 +458,8 @@ export const Constants = {
       ],
       combustivel_type: ["Flex", "Gasolina", "Diesel", "Elétrico", "Híbrido"],
       condicao_type: ["0KM", "Seminovo"],
+      estado_veiculo: ["Excelente", "Bom", "Regular", "Precisa reparos"],
+      interesse_avaliacao: ["Vender", "Trocar por outro", "Apenas avaliação"],
     },
   },
 } as const
