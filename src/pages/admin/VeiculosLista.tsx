@@ -58,7 +58,7 @@ import {
 import { cn } from '@/lib/utils';
 
 const statusOptions = [
-  { value: '', label: 'Todos' },
+  { value: 'all', label: 'Todos' },
   { value: 'ativo', label: 'Ativo' },
   { value: 'rascunho', label: 'Rascunho' },
   { value: 'vendido', label: 'Vendido' },
@@ -66,7 +66,7 @@ const statusOptions = [
 ];
 
 const condicaoOptions = [
-  { value: '', label: 'Todas' },
+  { value: 'all', label: 'Todas' },
   { value: '0KM', label: '0KM' },
   { value: 'Seminovo', label: 'Seminovo' },
 ];
@@ -210,7 +210,7 @@ export default function VeiculosLista() {
               />
             </div>
 
-            <Select value={status} onValueChange={(v) => updateFilter('status', v)}>
+            <Select value={status || 'all'} onValueChange={(v) => updateFilter('status', v === 'all' ? '' : v)}>
               <SelectTrigger className="w-[140px]">
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
@@ -221,7 +221,7 @@ export default function VeiculosLista() {
               </SelectContent>
             </Select>
 
-            <Select value={condicao} onValueChange={(v) => updateFilter('condicao', v)}>
+            <Select value={condicao || 'all'} onValueChange={(v) => updateFilter('condicao', v === 'all' ? '' : v)}>
               <SelectTrigger className="w-[140px]">
                 <SelectValue placeholder="Condição" />
               </SelectTrigger>
@@ -232,12 +232,12 @@ export default function VeiculosLista() {
               </SelectContent>
             </Select>
 
-            <Select value={marca} onValueChange={(v) => updateFilter('marca', v)}>
+            <Select value={marca || 'all'} onValueChange={(v) => updateFilter('marca', v === 'all' ? '' : v)}>
               <SelectTrigger className="w-[160px]">
                 <SelectValue placeholder="Marca" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Todas</SelectItem>
+                <SelectItem value="all">Todas</SelectItem>
                 {marcas.map(m => (
                   <SelectItem key={m.id} value={m.nome}>{m.nome}</SelectItem>
                 ))}
