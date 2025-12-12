@@ -281,6 +281,138 @@ export type Database = {
         }
         Relationships: []
       }
+      integracao_logs: {
+        Row: {
+          created_at: string
+          detalhes: Json | null
+          id: string
+          integracao_id: string
+          mensagem: string
+          tipo: string
+          veiculo_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          detalhes?: Json | null
+          id?: string
+          integracao_id: string
+          mensagem: string
+          tipo: string
+          veiculo_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          detalhes?: Json | null
+          id?: string
+          integracao_id?: string
+          mensagem?: string
+          tipo?: string
+          veiculo_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "integracao_logs_integracao_id_fkey"
+            columns: ["integracao_id"]
+            isOneToOne: false
+            referencedRelation: "integracoes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "integracao_logs_veiculo_id_fkey"
+            columns: ["veiculo_id"]
+            isOneToOne: false
+            referencedRelation: "veiculos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      integracao_veiculos: {
+        Row: {
+          created_at: string
+          external_id: string | null
+          id: string
+          integracao_id: string
+          status: string | null
+          ultimo_envio: string | null
+          updated_at: string
+          url: string | null
+          veiculo_id: string
+        }
+        Insert: {
+          created_at?: string
+          external_id?: string | null
+          id?: string
+          integracao_id: string
+          status?: string | null
+          ultimo_envio?: string | null
+          updated_at?: string
+          url?: string | null
+          veiculo_id: string
+        }
+        Update: {
+          created_at?: string
+          external_id?: string | null
+          id?: string
+          integracao_id?: string
+          status?: string | null
+          ultimo_envio?: string | null
+          updated_at?: string
+          url?: string | null
+          veiculo_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "integracao_veiculos_integracao_id_fkey"
+            columns: ["integracao_id"]
+            isOneToOne: false
+            referencedRelation: "integracoes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "integracao_veiculos_veiculo_id_fkey"
+            columns: ["veiculo_id"]
+            isOneToOne: false
+            referencedRelation: "veiculos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      integracoes: {
+        Row: {
+          ativo: boolean | null
+          config: Json | null
+          created_at: string
+          credenciais: Json | null
+          id: string
+          mapeamento: Json | null
+          portal: string
+          ultima_sincronizacao: string | null
+          updated_at: string
+        }
+        Insert: {
+          ativo?: boolean | null
+          config?: Json | null
+          created_at?: string
+          credenciais?: Json | null
+          id?: string
+          mapeamento?: Json | null
+          portal: string
+          ultima_sincronizacao?: string | null
+          updated_at?: string
+        }
+        Update: {
+          ativo?: boolean | null
+          config?: Json | null
+          created_at?: string
+          credenciais?: Json | null
+          id?: string
+          mapeamento?: Json | null
+          portal?: string
+          ultima_sincronizacao?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       lead_interacoes: {
         Row: {
           arquivo_url: string | null
